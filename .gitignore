@@ -1,0 +1,15 @@
+# Build directories
+cmake-build-debug/
+cmake-build-release/
+build/
+
+# IDE files
+.idea/
+
+# Compiled files
+*.o
+*.out
+*.exe
+
+# Game directory
+game/

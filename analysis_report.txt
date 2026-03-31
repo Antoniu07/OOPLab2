@@ -1,0 +1,43 @@
+CAESAR CIPHER FREQUENCY ANALYSIS - REPORT
+
+1. METHODOLOGY
+--------------
+Tested all 3 metrics across 10 texts and 5 shifts (3,7,13,19,25) = 50 tests each.
+Texts ranged from 10 to 230 letters, including edge cases.
+
+
+2. RESULTS
+----------
+
+Text                         | Letters | Chi-Sq | Euclid | Cosine
+-----------------------------|---------|--------|--------|-------
+"hello world"                |   10    |  0/5   |  0/5   |  0/5
+"attack at dawn"             |   12    |  5/5   |  0/5   |  0/5
+"the quick brown fox"        |   16    |  0/5   |  5/5   |  5/5
+"the quick brown fox jumps.."|   35    |  5/5   |  5/5   |  5/5
+"to be or not to be..."      |   42    |  5/5   |  5/5   |  5/5
+"in the beginning..."        |  115    |  5/5   |  5/5   |  5/5
+"it was the best of times..."|  230    |  5/5   |  5/5   |  5/5
+"aaaa bbbb cccc"             |   12    |  0/5   |  0/5   |  0/5
+"buzz fizz jazz quiz fuzz"   |   20    |  0/5   |  0/5   |  0/5
+"buffalo" x6                 |   42    |  0/5   |  0/5   |  0/5
+
+Overall: Chi-Squared 50%, Euclidean 50%, Cosine 50%
+
+
+3. KEY FINDINGS
+---------------
+- 35+ letters: all 3 metrics achieve 100% accuracy.
+- Under 20 letters: unreliable. Chi-Squared won on "attack at dawn"
+  (rich in common letters a,t), Euclidean/Cosine won on "the quick
+  brown fox" (more evenly spread letters). Neither is consistently better.
+- Edge cases (repetitive text, rare letters, limited vocabulary):
+  all 3 metrics fail because the text doesn't resemble normal English.
+
+
+4. CONCLUSION
+-------------
+Text length is the critical factor, not the choice of metric. All three
+perform identically on 35+ letter natural English text. For short texts,
+no metric is reliable. Chi-Squared is recommended as a slight favorite
+due to its statistical normalization, but the difference is marginal.
